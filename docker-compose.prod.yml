@@ -72,7 +72,7 @@ services:
     command: gunicorn djangoapi.wsgi:application --bind 0.0.0.0:8000
     # command: python djangoapi/manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./django_project:/usr/src/app:Z
+      - ./proyecto_django:/usr/src/app:Z
       - ./workspace:/workspace
     ports:
       - "${GEOMATICA_UPV_DJANGO_API_PORT}:8000"
