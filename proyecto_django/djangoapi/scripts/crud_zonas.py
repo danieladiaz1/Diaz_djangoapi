@@ -35,7 +35,7 @@ class CRUDZonas:
         o (None, mensaje_error) si alguna falla.
         """
         with connection.cursor() as cursor:
-            cursor.execute("SET search_path TO d, public")
+            cursor.execute("SET search_path TO public")
             # 1. Redondeo con ST_SnapToGrid
             cursor.execute(
                 "SELECT ST_AsText(ST_SnapToGrid(ST_GeomFromText(%s, %s), %s))",
@@ -106,7 +106,7 @@ class CRUDZonas:
                     descripcion=data.get('descripcion'),
                     capacidad=data.get('capacidad'),
                     abierto=data.get('abierto'),
-                    area=data.get('area'),
+                    area=geom.area,
                     geom=geom,
                 )
             return {
@@ -157,8 +157,9 @@ class CRUDZonas:
                 if error:
                     return {"ok": False, "message": error, "data": None}
                 instance.geom = geom
+                instance.area = geom.area
 
-            for field in ('nombre', 'descripcion', 'capacidad', 'abierto', 'area'):
+            for field in ('nombre', 'descripcion', 'capacidad', 'abierto'):
                 if field in data:
                     setattr(instance, field, data[field])
 

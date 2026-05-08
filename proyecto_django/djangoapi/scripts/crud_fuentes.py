@@ -36,7 +36,7 @@ class CRUDFuentes:
         o (None, mensaje_error) si alguna falla.
         """
         with connection.cursor() as cursor:
-            cursor.execute("SET search_path TO d, public")
+            cursor.execute("SET search_path TO public")
             # 1. Redondeo con ST_SnapToGrid
             cursor.execute(
                 "SELECT ST_AsText(ST_SnapToGrid(ST_GeomFromText(%s, %s), %s))",

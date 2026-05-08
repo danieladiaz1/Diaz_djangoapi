@@ -10,8 +10,8 @@ class Zona(models.Model):
     geom = models.PolygonField(srid=25830, null=True, blank=True)
 
     class Meta:
-        db_table = 'd\".\"zonas'
-        managed = False
+        db_table = 'public\".\"zonas'
+        #managed = False
 
 
 class Ruta(models.Model):
@@ -23,8 +23,8 @@ class Ruta(models.Model):
     geom = models.LineStringField(srid=25830, null=True, blank=True)
 
     class Meta:
-        db_table = 'd\".\"rutas'
-        managed = False
+        db_table = 'public\".\"rutas'
+        #managed = False
 
 
 class Fuente(models.Model):
@@ -36,5 +36,5 @@ class Fuente(models.Model):
     geom = models.PointField(srid=25830, null=True, blank=True)
 
     class Meta:
-        db_table = 'd\".\"fuentes'
-        managed = False
+        db_table = 'public\".\"fuentes'
+        #managed = False

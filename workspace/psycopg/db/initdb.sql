@@ -1,7 +1,7 @@
-CREATE SCHEMA IF NOT EXISTS d;
+-- CREATE SCHEMA IF NOT EXISTS d;
 
 -- 1. Polígonos
-CREATE TABLE d.zonas (
+CREATE TABLE zonas (
     id serial PRIMARY KEY,
     nombre varchar(100),
     descripcion text,
@@ -12,7 +12,7 @@ CREATE TABLE d.zonas (
 );
 
 -- 2. Líneas
-CREATE TABLE d.rutas (
+CREATE TABLE rutas (
     id serial PRIMARY KEY,
     nombre varchar(100),
     dificultad varchar(50),
@@ -23,7 +23,7 @@ CREATE TABLE d.rutas (
 );
 
 -- 3. Puntos
-CREATE TABLE d.fuentes (
+CREATE TABLE fuentes (
     id serial PRIMARY KEY,
     nombre varchar(100),
     potable boolean,
