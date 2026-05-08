@@ -42,5 +42,5 @@ urlpatterns = [
     # path('buildings/', include('buildings.urls')),
     # path('flowers/', include('flowers.urls')),
     # path('accidentes/', include('accidentes.urls')),
-    path("api/proyecto_parques", include("app_proyecto_parques.urls"))
+    path("api/proyecto_parques/", include("app_proyecto_parques.urls"))
 ]

@@ -100,20 +100,20 @@ class CRUDRutas:
             if error:
                 return {"ok": False, "message": error, "data": None}
 
-with transaction.atomic():
+            with transaction.atomic():
                 instance = Ruta.objects.create(
-                    nombre=data.get('nombre'),
-                    dificultad=data.get('dificultad'),
-                    desnivel=data.get('desnivel'),
-                   abierta=data.get('abierta'),
-                    longitud=geom.length,
-                    geom=geom,
-                )
+                                nombre=data.get('nombre'),
+                                dificultad=data.get('dificultad'),
+                                desnivel=data.get('desnivel'),
+                            abierta=data.get('abierta'),
+                                longitud=geom.length,
+                                geom=geom,
+                            )
             return {
-                "ok": True,
-                "message": f"Ruta insertada correctamente con id={instance.pk}",
-                "data": [_instance_to_dict(instance)],
-            }
+                            "ok": True,
+                            "message": f"Ruta insertada correctamente con id={instance.pk}",
+                            "data": [_instance_to_dict(instance)],
+                        }
         except Exception as e:
             return {"ok": False, "message": f"Error en insert: {e}", "data": None}
 
