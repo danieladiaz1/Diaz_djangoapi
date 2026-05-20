@@ -70,7 +70,7 @@ services:
 
     command: python djangoapi/manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./proyecto_django:/usr/src/app
+      - ./proyecto_django:/usr/src/app:Z
       - ./workspace:/workspace
     ports:
       - "${DEVELOP_DOCKER_DJANGO_API_FORWARDED_PORT}:8000"
